@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Urban delta</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter" >
+
+</head>
+
+<body>
+    <!-- Navigatiebalk -->
+    <header class="navigatiebalk">
+
+        <nav class="navbar navbar-dark bg-dark">
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="logo"></span>
+  </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#Introductie">Introductie <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#Mississippi">Mississippi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#RioGrande">Rio Grande</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#Bronnen">Bronnen</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- De introductie -->
+
+<div class="container">
+        <div class="titel" id="Introductie">Introductie</div>
+        <div class="row">
+            <!-- info over de Mississippi -->
+            <div class="col-10">Welkom op de website.<br>Er is onderzoek gedaan naar twee verschillende deltas. Beide liggen toevallig in de Verenigde Staten maar zijn niet met elkaar verbonden. Hierdoor zijn deze deltas erg verschillend en beide hebben andere problemen waar de mens last van kan krijgen.</div>
+        </div>
+    </div>
+
+    <!-- Mississippi gedeelte -->
+
+    <div class="container">
+        <div class="titel" id="Mississippi">De Mississippi</div>
+        <div class="row">
+            <!-- De Mississippi afbeelding -->
+            <div class="col-md-auto imageM"></div>
+            <!-- info over de Mississippi -->
+            <div class="col-6 mississippi-info">De mississippi is erg groot en is verbonden met andere kleinere rivieren die zorgen voor extra extra water en materialen. De Mississippi heeft door zijn grote hoeveelheid water erg veel kracht qua stroming. Hierdoor is het mogelijk dat de rivier zijn koers kan veranderen en daardoor het stroomgebied wijzigt. Dit kan rampzalig zijn voor de Steden die bij de huidige monding van de rivier liggen. Deze steden hebben grote haven die afhankelijk zijn van de Mississippi rivier en zijn toevoer van water.</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row tussenregel">
+            <div class="col-md-10">
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Kaart -->
+    <div class="container"></div>
+    <div id="map">
+        <div class="col-8">
+            <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+
+            <script>
+                //initialize the map
+                var map = L.map('map').setView([36.984656, -89.173894], 4);
+
+                //Create baselayer - tiles
+                var backgroundMap = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+                    attribution: '<a href="http://openstreetmap.org">OpenStreetMap</a>contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+                    maxZoom: 20
+                });
+
+                //marker
+                var oorsprong = L.marker([47.216786, -95.204788]).addTo(map);
+                var eerstesamenvoeging = L.marker([46.277754, -94.341779]).addTo(map);
+                var verbreding = L.marker([36.984656, -89.173894]).addTo(map);
+                var tweedesamenvoeging = L.marker([33.769871, -91.107119]).addTo(map);
+                var eindpunt = L.marker([29.153913, -89.252545]).addTo(map);
+
+                //popups
+                var popup = "De oorsprong van de Mississippi in het itascameer";
+                oorsprong.bindPopup(popup);
+                var popup = "Hier voegt de mississippi voor het eerst samen met andere rivieren";
+                eerstesamenvoeging.bindPopup(popup);
+                var popup = "De Mississippi voegt samen met de ohio rivier en de rivier verbreed en wordt meer troebel";
+                verbreding.bindPopup(popup);
+                var popup = "De Mississippi voegt zich samen met Arkansas rivier";
+                tweedesamenvoeging.bindPopup(popup);
+                var popup = "De Mississippi eindigt zich bij de kust en splitst zich voor het laats op";
+                eindpunt.bindPopup(popup);
+
+                backgroundMap.addTo(map);
+
+
+
+                // Create a marker first
+                var geojsonMarkerOptions = {
+                    radius: 8,
+                    fillColor: "#ff7800",
+                    color: "#000",
+                    weight: 1,
+                    opacity: 1,
+                    fillOpacity: 0.8
+                };
+
+                //create a empty geojson layer
+                var geojson = L.geoJson(null, {
+                    pointToLayer: function(feature, latlng) {
+                        return L.circleMarker(latlng, geojsonMarkerOptions);
+                    }
+                }).addTo(map);
+
+                L.geoJSON(geojsonFeature, properties).addTo(map);
+
+                var myLayer = L.geoJSON().addTo(map);
+                myLayer.addData(geojsonFeature);
+
+            </script>
+        </div>
+    </div>
+
+
+    <!-- Rio Grande gedeelte -->
+    <div class="container">
+        <div class="titel" id="RioGrande">De Rio Grande</div>
+        <div class="row">
+            <!-- De Mississippi afbeelding -->
+            <div class="col-md-auto imageR"></div>
+            <!-- info over de Mississippi -->
+            <div class="col-6 mississippi-info">De Rio Grande is een rivier met een lengte van 3034 kilometer. De rivier vormt voor het grootste deel de grens tussen VS (Texas) en Mexico. Een groot probleem voor de rivier is dat de mensen meer water gebruiken dan de rivier aankan. Sinds 2003 ligt het deel tussen Albuquerque en het Big Bend National Park regelmatig droog. De rivier stroomt door meerdere woestijngebieden en men vreest dat de rivier kan opdrogen als er geen maatregelen komen.</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row tussenregel">
+            <div class="col-md-10">
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!--<div id="map">
+        <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+
+        <script>
+            //initialize the map
+            var map = L.map('map2').setView([36.984656, -89.173894], 10);
+
+            //Create baselayer - tiles
+            var backgroundMap = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+                attribution: '<a href="http://openstreetmap.org">OpenStreetMap</a>contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+                maxZoom: 20
+            });
+
+            //marker
+            var oorsprongx = L.marker([47.216786, -95.204788]).addTo(map);
+            var eerstesamenvoegingx = L.marker([46.277754, -94.341779]).addTo(map);
+            var verbredingx = L.marker([36.984656, -89.173894]).addTo(map);
+            var tweedesamenvoegingx = L.marker([33.769871, -91.107119]).addTo(map);
+            var eindpuntx = L.marker([29.153913, -89.252545]).addTo(map);
+
+            //popups
+            var popup = "De oorsprong van de Mississippi in het itascameer";
+            oorsprongx.bindPopup(popup);
+            var popup = "Hier voegt de mississippi voor het eerst samen met andere rivieren";
+            eerstesamenvoegingx.bindPopup(popup);
+            var popup = "De Mississippi voegt samen met de ohio rivier en de rivier verbreed en wordt meer troebel";
+            verbredingx.bindPopup(popup);
+            var popup = "De Mississippi voegt zich samen met Arkansas rivier";
+            tweedesamenvoegingx.bindPopup(popup);
+            var popup = "De Mississippi eindigt zich bij de kust en splitst zich voor het laats op";
+            eindpuntx.bindPopup(popup);
+
+            backgroundMap.addTo(map);
+
+
+
+            // Create a marker first
+            var geojsonMarkerOptions = {
+                radius: 8,
+                fillColor: "#ff7800",
+                color: "#000",
+                weight: 1,
+                opacity: 1,
+                fillOpacity: 0.8
+            };
+
+            //create a empty geojson layer
+            var geojson = L.geoJson(null, {
+                pointToLayer: function(feature, latlng) {
+                    return L.circleMarker(latlng, geojsonMarkerOptions);
+                }
+            }).addTo(map);
+
+            L.geoJSON(geojsonFeature, properties).addTo(map);
+
+            var myLayer = L.geoJSON().addTo(map);
+            myLayer.addData(geojsonFeature);
+        </script>
+    </div>-->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+</body>
+
+</html>

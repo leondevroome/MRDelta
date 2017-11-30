@@ -1,0 +1,71 @@
+body{
+    background-image: url(Images/rivier%20achtergrond.png);
+    background-size: cover;
+}
+
+.container {
+   /* padding-left: 8%;*/
+}
+
+#map {
+    height: 500px;
+    width: 80%;
+    margin-left:10%;
+}
+
+#map2 {
+    height: 500px;
+    width: 100%;
+}
+.nav-link {
+    font-size: 20px;
+    margin-left: 2%;
+}
+.navigatiebalk {
+    position: fixed;
+    width: 10%;
+    top: 0;
+}
+.form-inline {
+    margin-left: 2%;
+}
+.logo {
+    content: url(Images/Mississippi%20+%20Rio%20Grande%20logo%201.png);
+    width: 100px;
+    height: 100px;
+}
+
+.imageM {
+    content: url(http://38.media.tumblr.com/f6a54c1a2a70d9f85dd15a645ed9cd6e/tumblr_nuao8rYnSp1rj05e4o1_500.gif);
+    height: 40%;
+    width: 40%;
+    /*padding-top: 5%;
+   /* padding-left: 10%;*/
+}
+
+.imageR {
+    content: url(Images/RioGrande1.jpg);
+    height: 40%;
+    width: 40%;
+    /*padding-top: 5%;
+   /* padding-left: 10%;*/
+}
+
+.mississippi-info {
+    padding-top: 2%;
+    /*padding-left: 5%;*/
+   background-color: rgba(28, 167, 167, 0.5);
+}
+
+.tussenregel {
+    padding-top: 10%;
+    padding-bottom: 10%;
+    /*padding-left: 10%;*/
+}
+
+.titel {
+    margin-top: 5%;
+    margin-bottom: 2%;
+    font-size: 40px;
+    font-family: 'Bitter', serif;
+}
