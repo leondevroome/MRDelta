@@ -6,12 +6,15 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Een informatieve website over de Mississippi en Rio Grande delta's">
+
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter">
+
 
 </head>
 
@@ -22,10 +25,13 @@
         <nav class="navbar navbar-dark bg-dark">
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="logo"></span>
+  <span class="hamburger"></span>
   </button>
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link logo" href=""></a>
+                    </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="#Introductie">Introductie <span class="sr-only">(current)</span></a>
                     </li>
@@ -35,9 +41,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#RioGrande">Rio Grande</a>
                     </li>
-                    <li class="nav-item">
+                    <!--<li class="nav-item">
                         <a class="nav-link" href="#Bronnen">Bronnen</a>
-                    </li>
+                    </li>-->
                 </ul>
             </div>
         </nav>
@@ -45,11 +51,14 @@
 
     <!-- De introductie -->
 
-<div class="container">
+    <div class="container">
         <div class="titel" id="Introductie">Introductie</div>
         <div class="row">
             <!-- info over de Mississippi -->
             <div class="col-10">Welkom op de website.<br>Er is onderzoek gedaan naar twee verschillende deltas. Beide liggen toevallig in de Verenigde Staten maar zijn niet met elkaar verbonden. Hierdoor zijn deze deltas erg verschillend en beide hebben andere problemen waar de mens last van kan krijgen.</div>
+        </div>
+        <div class="gif">
+            <img src="gif/Webp.net-gifmaker.gif" width=3 0%;>
         </div>
     </div>
 
@@ -61,7 +70,7 @@
             <!-- De Mississippi afbeelding -->
             <div class="col-md-auto imageM"></div>
             <!-- info over de Mississippi -->
-            <div class="col-6 mississippi-info">De mississippi is erg groot en is verbonden met andere kleinere rivieren die zorgen voor extra extra water en materialen. De Mississippi heeft door zijn grote hoeveelheid water erg veel kracht qua stroming. Hierdoor is het mogelijk dat de rivier zijn koers kan veranderen en daardoor het stroomgebied wijzigt. Dit kan rampzalig zijn voor de Steden die bij de huidige monding van de rivier liggen. Deze steden hebben grote haven die afhankelijk zijn van de Mississippi rivier en zijn toevoer van water.</div>
+            <div class="col-7 mississippi-info">De mississippi is erg groot en is verbonden met andere kleinere rivieren die zorgen voor extra extra water en materialen. De Mississippi heeft door zijn grote hoeveelheid water erg veel kracht qua stroming. Hierdoor is het mogelijk dat de rivier zijn koers kan veranderen en daardoor het stroomgebied wijzigt. Dit kan rampzalig zijn voor de Steden die bij de huidige monding van de rivier liggen. Deze steden hebben grote haven die afhankelijk zijn van de Mississippi rivier en zijn toevoer van water.</div>
         </div>
     </div>
 
@@ -97,15 +106,15 @@
                 var eindpunt = L.marker([29.153913, -89.252545]).addTo(map);
 
                 //popups
-                var popup = "De oorsprong van de Mississippi in het itascameer";
+                var popup = "De oorsprong van de Mississippi in het itascameer<br/><img src='images/ItascaLake.jpg' alt='itasca foto' width='200px'/>";
                 oorsprong.bindPopup(popup);
-                var popup = "Hier voegt de mississippi voor het eerst samen met andere rivieren";
+                var popup = "Hier voegt de mississippi voor het eerst samen met andere rivieren <br/><img src='images/SamenvoegingMississippi.jpg' alt='Eerste samenvoeging foto' width='200px'/>";
                 eerstesamenvoeging.bindPopup(popup);
-                var popup = "De Mississippi voegt samen met de ohio rivier en de rivier verbreed en wordt meer troebel";
+                var popup = "De Mississippi voegt samen met de ohio rivier en de rivier verbreed en wordt meer troebel <br/><img src='images/MississippiOhio.jpg' alt='Mississippi & Ohio foto' width='200px'/>";
                 verbreding.bindPopup(popup);
-                var popup = "De Mississippi voegt zich samen met Arkansas rivier";
+                var popup = "De Mississippi voegt zich samen met Arkansas rivier <br/><img src='images/MississippiArkansas.jpg' alt='Mississippi en Arkansas foto' width='200px'/>";
                 tweedesamenvoeging.bindPopup(popup);
-                var popup = "De Mississippi eindigt zich bij de kust en splitst zich voor het laats op";
+                var popup = "De Mississippi eindigt zich bij de kust en splitst zich voor het laats op <br/><img src='images/MississippiEnd.jpg' alt='Einde Mississippi foto' width='200px'/>";
                 eindpunt.bindPopup(popup);
 
                 backgroundMap.addTo(map);
@@ -133,8 +142,16 @@
 
                 var myLayer = L.geoJSON().addTo(map);
                 myLayer.addData(geojsonFeature);
-
             </script>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="titel" id="Mississippi">Geschiedenis Mississippi</div>
+        <div class="row" id="geschiedenis">
+            <!-- info over de Mississippi -->
+            <div class="col-12 mississippi-info">De Mississippi is het grootste waterafvoernetwerk van heel Noord-Amerika. De rivier voert water af van wel 31 Amerikaanse staten en 2 provincies uit Canada. De rivier voert gemiddeld 17000 cubieke meter water af per seconde. Omdat het een erg centrale rivier is en in vele staten voorkomt is de rivier een belangrijk onderdeel geworden van de Amerikaanse historie en folklore. De rivier is een nogal wilde en onstuimige buurman van het meest voedselrijke boerenlandschap van het gehele continent en is hierdoor erg beïnvloed door de mens om de rivier onder controle te krijgen. De reden hiervoor is omdat de Mississippi enorm meandert. De rivier verandert hierdoor van richting en kan zo terecht komen in een bewoond gebied of belangrijk stuk landbouwgebied als er niets gedaan word.
+            </div>
         </div>
     </div>
 
@@ -146,28 +163,25 @@
             <!-- De Mississippi afbeelding -->
             <div class="col-md-auto imageR"></div>
             <!-- info over de Mississippi -->
-            <div class="col-6 mississippi-info">De Rio Grande is een rivier met een lengte van 3034 kilometer. De rivier vormt voor het grootste deel de grens tussen VS (Texas) en Mexico. Een groot probleem voor de rivier is dat de mensen meer water gebruiken dan de rivier aankan. Sinds 2003 ligt het deel tussen Albuquerque en het Big Bend National Park regelmatig droog. De rivier stroomt door meerdere woestijngebieden en men vreest dat de rivier kan opdrogen als er geen maatregelen komen.</div>
+            <div class="col-7 mississippi-info">De Rio Grande is een rivier met een lengte van 3034 kilometer. De rivier vormt voor het grootste deel de grens tussen VS (Texas) en Mexico. Een groot probleem voor de rivier is dat de mensen meer water gebruiken dan de rivier aankan. Sinds 2003 ligt het deel tussen Albuquerque en het Big Bend National Park regelmatig droog. De rivier stroomt door meerdere woestijngebieden en men vreest dat de rivier kan opdrogen als er geen maatregelen komen.</div>
         </div>
     </div>
 
     <div class="container">
         <div class="row tussenregel">
-            <div class="col-md-10">
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            <div class="col-md-10" id="bold">
+                Een ander probleem van de Rio Grande is dat de hoeveelheid sediment erg groot is en wordt beinvloed door de hoogte van het zeewater en de hoeveelheid afgravingen van de mens.
             </div>
         </div>
     </div>
 
 
-
-
-
-    <!--<div id="map">
+    <div id="map2">
         <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
 
         <script>
             //initialize the map
-            var map = L.map('map2').setView([36.984656, -89.173894], 10);
+            var map = L.map('map2').setView([29.129564, -101.581712], 6);
 
             //Create baselayer - tiles
             var backgroundMap = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
@@ -176,22 +190,22 @@
             });
 
             //marker
-            var oorsprongx = L.marker([47.216786, -95.204788]).addTo(map);
-            var eerstesamenvoegingx = L.marker([46.277754, -94.341779]).addTo(map);
-            var verbredingx = L.marker([36.984656, -89.173894]).addTo(map);
-            var tweedesamenvoegingx = L.marker([33.769871, -91.107119]).addTo(map);
-            var eindpuntx = L.marker([29.153913, -89.252545]).addTo(map);
+            var oorsprongx = L.marker([31.783968, -106.528319]).addTo(map);
+            var eerstesamenvoegingx = L.marker([29.475239, -101.119979]).addTo(map);
+            var verbredingx = L.marker([26.725043, -99.221118]).addTo(map);
+            var tweedesamenvoegingx = L.marker([25.899176, -97.497543]).addTo(map);
+            var eindpuntx = L.marker([25.952280, -97.148587]).addTo(map);
 
             //popups
-            var popup = "De oorsprong van de Mississippi in het itascameer";
+            var popup = "Begin riviergrens <br/><img src='images/RioGrandeStart.jpg' alt='Start of the RIo Grande' width='200px'/>";
             oorsprongx.bindPopup(popup);
-            var popup = "Hier voegt de mississippi voor het eerst samen met andere rivieren";
+            var popup = "Het Amistad reservoir<br/><img src='images/Reservoir1.jpg' alt='Eerste reservoir' width='200px'/>";
             eerstesamenvoegingx.bindPopup(popup);
-            var popup = "De Mississippi voegt samen met de ohio rivier en de rivier verbreed en wordt meer troebel";
+            var popup = "Het Falcon reservoir<br/><img src='images/FalconReservoir.jpg' alt='Het Falcon reservoir' width='200px'/>";
             verbredingx.bindPopup(popup);
-            var popup = "De Mississippi voegt zich samen met Arkansas rivier";
+            var popup = "Brownsville, laatste grote stad langs de rivier<br/><img src='images/BrownsvilleMatamoros.jpg' alt='Brownsville en Matamoros' width='200px'/>";
             tweedesamenvoegingx.bindPopup(popup);
-            var popup = "De Mississippi eindigt zich bij de kust en splitst zich voor het laats op";
+            var popup = "Rivier gaat de zee in <br/><img src='images/RioGrandeEnd.jpg' alt='Einde Rio Grande foto' width='200px'/>";
             eindpuntx.bindPopup(popup);
 
             backgroundMap.addTo(map);
@@ -220,8 +234,16 @@
             var myLayer = L.geoJSON().addTo(map);
             myLayer.addData(geojsonFeature);
         </script>
-    </div>-->
+    </div>
 
+
+    <div class="container">
+        <div class="titel" id="RioGrande">Geschiedenis Rio Grande</div>
+        <div class="row" id="geschiedenis">
+            <!-- info over de Mississippi -->
+            <div class="col-12 mississippi-info">De Rio Grande dient voor een groot deel als grens tussen de Verenigde Staten en Mexico die officieel in gang is gezet in 1848. De rivier begint in Colorado en stroomt naar de Golf van Mexico. Sinds halverwege de 20e eeuw is de hoeveelheid waterconsumptie enorm toegenomen door steden en landbouw gecombineerd met grote afscheidende dammen. Hierdoor stroomt nog maar 20% van het water door de Golf van Mexico. In de zomer van 2001 ontstond er een enorme zandbank van ongeveer 100 meter wat ervoor zorgde dat de rivier niet meer de Golf van Mexico in kon stromen. Nadat deze was weggegraven onstond deze opnieuw. Dit gebeurde nogmaals in 2002 en pas in de herfst van 2003 stroomde het water weer door de Golf van Mexico. Officieel bezit de Verenigde staten het water van de rivier en de bevolking verbruikt meer water dan de rivier kan bieden. Bij veel dammen in de rivier is de stroming enorm afgenomen. Soms van bijna 30m3/s naar slechts 5m3/s. Het is dus enorm belangrijk voor de bevolking en de regering om zich te beseffen dat er betere maatregelingen genomen moeten worden voordat de rivier te veel opdroogt en de bevolking zonder water komt te zitten.</div>
+        </div>
+    </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -229,4 +251,10 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 </body>
 
+<footer>
+    Bronnen Contact
+</footer>
+
 </html>
+
+
