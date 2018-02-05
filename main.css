@@ -1,5 +1,5 @@
 body{
-    background-image: url(Images/rivier%20achtergrond.png);
+    background-image: url(Images/Achtergrond.png);
     background-size: cover;
 }
 
@@ -47,12 +47,12 @@ body{
 }
 
 .hamburger {
-    content: url(Images/hamburger%20menu%20icoonje%201.png);
+    content: url(Images/Hammenu.png);
     width: 50px;
     height: 50px;
 }
 .logo {
-    content: url(Images/Mississippi%20+%20Rio%20Grande%20logo%201.png);
+    content: url(Images/MRlogo.png);
     width: 75%;
     height: 75%;
 }
